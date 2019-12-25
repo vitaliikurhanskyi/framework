@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 /* Функция для дебага */
-function debug($str) {
+function dd($str) {
 	echo '<pre>';
 	var_dump($str);
 	echo '</pre>';

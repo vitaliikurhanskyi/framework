@@ -7,10 +7,9 @@ require 'lib/Dev.php';
 use core\Router;
 use lib\Db;
 
-/* Функция автозагрузки*/
+/* Функция автозагрузки \ ,thtn yfpdfybt genb c use*/
 spl_autoload_register(function ($class) {
     $path = str_replace('\\', '/', $class . '.php');
-    // echo $path;
     if (file_exists($path)) {
     	require $path;
     }
@@ -20,8 +19,11 @@ spl_autoload_register(function ($class) {
 session_start();
 
 $router = new Router;
-$router->run();
+// $router->run();
 $db = new Db;
+
+$router->run();
+
 
 
 
