@@ -18,6 +18,11 @@ return [
 		'action' => 'show'
 	],
 
+	'contacts' => [
+		'controller' => 'contacts',
+		'action' => 'index'
+	],
+
 ];
 
 

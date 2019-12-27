@@ -36,12 +36,18 @@ class Router {
 
 	public function run() {
 		if($this->match()){
-			$controller = 'controllers\\' . ucfirst($this->params['controller']) . 'Controller.php';
-			if (class_exists($controller)) {
-				//
+			$path = 'controllers\\' . ucfirst($this->params['controller']) . 'Controller';
+			if (class_exists($path)) {
+				$action = $this->params['action'].'Action';
+				if(method_exists($path, $action)) {
+					$controller = new $path($this->params);
+					$controller->$action();
+				} else {
+					echo "Екшн не найден";
+				}
 			}
 			else {
-				echo "<br>Класс не найден <b>" . $controller . "</b><br>";
+				echo "<br>Контроллер <b>" . $path . "</b><br>";
 			}
 			echo '<p>controllers: <b>' . $this->params['controller']  . '</b></p>';
 			echo '<p>action: <b>' . $this->params['action']  . '</b></p>';
