@@ -6,12 +6,21 @@ use core\Controller;
 
 class AccountController extends Controller {
 
+	//Сменить layout для всего контроллера
+	// public function before() {
+	// 	$this->view->layout = "test";
+	// }
+
 	public function loginAction() {
-		echo "Страница входа!!!";
+		$this->view->render('Вход');
 	}
 
 	public function registerAction() {
-		echo "Страница регистрации";
+
+		// $this->view->layout = "test";  Сменить layout 
+
+		// $this->view->path = 'test/test'; Сменить директорию view html файла
+		$this->view->render('Регистрация!');
 	}
 
 

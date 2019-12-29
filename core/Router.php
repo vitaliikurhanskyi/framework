@@ -25,7 +25,7 @@ class Router {
 		$url = trim($_SERVER['REQUEST_URI'], '/');
 		
 		foreach ($this->routes as $route => $params) {
-			/* ищем совпадение url и масива с файда routes*/
+			/* ищем совпадение url и масива с файла routes*/
 			if (preg_match($route, $url, $match)) {
 				$this->params = $params;
 				return true;
@@ -47,13 +47,14 @@ class Router {
 				}
 			}
 			else {
-				echo "<br>Контроллер <b>" . $path . "</b><br>";
+				// echo "<br>Контроллер <b>" . $path . "</b><br>";
 			}
-			echo '<p>controllers: <b>' . $this->params['controller']  . '</b></p>';
-			echo '<p>action: <b>' . $this->params['action']  . '</b></p>';
+			// echo '<p>controllers: <b>' . $this->params['controller']  . '</b></p>';
+			// echo '<p>action: <b>' . $this->params['action']  . '</b></p>';
+			// dd($this->params);
 		}
 		else {
-			echo "Маршрут не найден";
+			// echo "Маршрут не найден";
 		}
 	}
 }
