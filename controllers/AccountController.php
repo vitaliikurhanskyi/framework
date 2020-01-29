@@ -12,6 +12,7 @@ class AccountController extends Controller {
 	// }
 
 	public function loginAction() {
+		//$this->view->redirect('/'); /* РЕДИРЕКТ */
 		$this->view->render('Вход');
 	}
 

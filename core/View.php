@@ -15,7 +15,7 @@ class View {
 	}
 
 	public function render($title, $vars = []) {
-		
+		extract($vars);
 		if(file_exists('view/' . $this->path . '.php')){
 			ob_start();
 			require 'view/' . $this->path . '.php';
@@ -25,6 +25,20 @@ class View {
 			echo "Вид не найден!";
 		}
 		
+	}
+
+	public static function errorCode($code) {
+		http_response_code($code);
+		if(file_exists('view/errors/'. $code .'.php')){
+		
+			require 'view/errors/'. $code .'.php';
+			exit;
+		}	
+	}
+
+	public function redirect($url) {
+		header('location: '. $url);
+		exit;
 	}
 
 
